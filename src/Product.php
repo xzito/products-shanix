@@ -2,6 +2,8 @@
 
 namespace Xzito\Products;
 
+use Xzito\Solutions\Solution;
+
 class Product {
   private $id;
   private $name;
@@ -12,6 +14,7 @@ class Product {
   private $banner;
   private $features;
   private $main_copy;
+  private $related_solutions;
   private $cta;
 
   public static function find_by_name($name) {
@@ -73,6 +76,7 @@ class Product {
     $this->set_large_icon();
     $this->set_main_copy();
     $this->set_features();
+    $this->set_related_solutions();
     $this->set_cta();
   }
 
@@ -139,6 +143,10 @@ class Product {
     return $cta;
   }
 
+  public function related_solutions() {
+    return $this->related_solutions;
+  }
+
   private function set_name() {
     $default = 'Unnamed Product';
 
@@ -177,6 +185,17 @@ class Product {
     }
 
     $this->features = $features;
+  }
+
+  private function set_related_solutions() {
+    $solutions_ids = get_field('portfolios_solutions', $this->id) ?? [];
+
+    $related_solutions = array_map(function($solution_id) {
+      return new Solution($solution_id);
+    }, $solutions_ids);
+
+    $this->related_solutions = $related_solutions;
+
   }
 
   private function set_cta() {

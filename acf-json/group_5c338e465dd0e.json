@@ -473,7 +473,7 @@
                         "light": "Light",
                         "blue": "Blue"
                     },
-                    "default_value": [],
+                    "default_value": false,
                     "allow_null": 0,
                     "multiple": 0,
                     "ui": 0,
@@ -664,6 +664,33 @@
             "min": "",
             "max": "",
             "return_format": "id"
+        },
+        {
+            "key": "field_5f4dc856f47c9",
+            "label": "Related Solutions",
+            "name": "products_solutions",
+            "type": "relationship",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "solution"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": [
+                "featured_image"
+            ],
+            "min": "",
+            "max": "",
+            "return_format": "id"
         }
     ],
     "location": [
@@ -686,5 +713,5 @@
     ],
     "active": 1,
     "description": "Product information.",
-    "modified": 1595522839
+    "modified": 1598933743
 }
